@@ -15,6 +15,12 @@ public class UsersController {
         this.userService = userService;
     }
 
+    // for CORS testing purposes, allowed to all unauthenticated users
+    @GetMapping("/public")
+    public User publicRoute () {
+        return new User();
+    }
+
     @GetMapping("/users")
     public List<User> getAllUsers () {
         return userService.getAllUsers();
