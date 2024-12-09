@@ -10,14 +10,16 @@ import PrivateRoute from './route/PrivateRoute.tsx';
 
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+  const [users, setUsers] = useState([]);
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<PrivateRoute isLoggedIn={isLoggedIn} />}>
-          <Route path='/' element={<App />} />
+          <Route path='/users' element={<App users={users} />} />
+          <Route path="/user/:id" element={<App users={users} />} />
         </Route>
         <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} setUsers={setUsers} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
