@@ -17,7 +17,7 @@ const Main = () => {
           <Route path='/' element={<App />} />
         </Route>
         <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
