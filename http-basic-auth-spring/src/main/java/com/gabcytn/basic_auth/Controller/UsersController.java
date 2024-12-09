@@ -17,8 +17,8 @@ public class UsersController {
 
     // for CORS testing purposes, allowed to all unauthenticated users
     @GetMapping("/public")
-    public User publicRoute () {
-        return new User();
+    public List<User> publicRoute () {
+        return List.of(new User());
     }
 
     @GetMapping("/users")
@@ -27,8 +27,8 @@ public class UsersController {
     }
 
     @GetMapping("/user/{id}")
-    public Optional<User> getUserById (@PathVariable int id) {
-        return userService.getUserById(id);
+    public List<Optional<User>> getUserById (@PathVariable int id) {
+        return List.of(userService.getUserById(id));
     }
 
     @PostMapping("/register")
