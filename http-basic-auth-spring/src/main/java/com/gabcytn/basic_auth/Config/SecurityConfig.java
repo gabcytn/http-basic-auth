@@ -49,6 +49,7 @@ public class SecurityConfig {
             @Override
             public void customize(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry authorizationManagerRequestMatcherRegistry) {
                 authorizationManagerRequestMatcherRegistry.requestMatchers("/register").permitAll();
+                authorizationManagerRequestMatcherRegistry.requestMatchers("/users").hasAuthority("admin");
                 authorizationManagerRequestMatcherRegistry.anyRequest().authenticated();
             }
         };
