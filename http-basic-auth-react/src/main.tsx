@@ -8,9 +8,16 @@ import Login from './pages/Login.tsx'
 import NotFound from './pages/NotFound.tsx';
 import PrivateRoute from './route/PrivateRoute.tsx';
 
+type User = {
+  id: number;
+  username: string;
+  password: string;
+  role: string;
+}
+
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
   return (
     <BrowserRouter>
       <Routes>
@@ -25,5 +32,7 @@ const Main = () => {
     </BrowserRouter>
   )
 }
+
+export default Main;
 
 createRoot(document.getElementById('root')!).render(<Main />)
