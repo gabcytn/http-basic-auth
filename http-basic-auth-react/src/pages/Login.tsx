@@ -4,7 +4,19 @@ import Button from "../components/Button"
 import TextInput from "../components/TextInput"
 import { useNavigate } from "react-router";
 
-function Login({ setIsLoggedIn, setUsers }) {
+type User = {
+  id: number;
+  username: string;
+  password: string;
+  role: string;
+}
+
+type LoginProps = {
+  setIsLoggedIn: (value: boolean) => void;
+  setUsers: (value: User[]) => void;
+}
+
+function Login({ setIsLoggedIn, setUsers }: LoginProps) {
   const [whichRoute, setWhichRoute] = useState<string>("")
   const [username, setUsername] = useState<string>("")
   const [password, setPassword] = useState<string>("")
